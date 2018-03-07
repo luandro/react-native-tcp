@@ -13,7 +13,7 @@ var ipRegex = require('ip-regex');
 var Socket = require('./TcpSocket');
 var Server = require('./TcpServer');
 
-exports.createServer = function(connectionListener: (socket: Socket)  => void) : Server {
+exports.createServer = function(opts: { allowHalfOpen: boolean, pauseOnConnect: boolean }, connectionListener: (socket: Socket)  => void) : Server {
   return new Server(connectionListener);
 };
 
